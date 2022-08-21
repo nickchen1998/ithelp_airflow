@@ -38,7 +38,7 @@ def failed_crawl():
     print("爬取失敗")
 
 
-@dag(start_date=datetime.today(), tags=['user'])
+@dag(start_date=datetime.today(), tags=['user'], schedule_interval="@daily")
 def python_operator_demo_dag():
     start_task = EmptyOperator(task_id=TaskID.start_task_id)
 
