@@ -5,7 +5,7 @@ ref：https://sorokin.engineer/posts/en/apache_airflow_sqlalchemy_operator.html
 from airflow.operators.python import PythonOperator
 from airflow.utils.decorators import apply_defaults
 from sqlalchemy.orm import sessionmaker, Session
-from airflow.hooks.postgres import PostgresHook
+from airflow.hooks.postgres_hook import PostgresHook
 
 
 def get_session(conn_id: str) -> Session:
@@ -15,15 +15,6 @@ def get_session(conn_id: str) -> Session:
 
 
 class SQLAlchemyOperator(PythonOperator):
-    """
-    PythonOperator with SQLAlchemy session management - creates session for the Python callable
-    and commit/rollback it afterwards.
-
-    Set `conn_id` with you DB connection.
-
-    Pass `session` parameter to the python callable.
-    """
-
     @apply_defaults
     def __init__(
             self,

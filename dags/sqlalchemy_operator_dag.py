@@ -12,10 +12,7 @@ class Settings:
     conn_id = "postgres_connection"
     start_task_id = "start_task"
     end_task_id = "end_task"
-    crawler_task_id = "crawler_task"
     create_table_task_id = "create_table"
-    success_task_id = "crawl_success"
-    failed_task_id = "crawl_failed"
 
 
 def create_table(session: Session):
