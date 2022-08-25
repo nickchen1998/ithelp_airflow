@@ -5,7 +5,7 @@ ref：https://sorokin.engineer/posts/en/apache_airflow_sqlalchemy_operator.html
 from airflow.operators.python import PythonOperator
 from airflow.utils.decorators import apply_defaults
 from sqlalchemy.orm import sessionmaker, Session
-from airflow.hooks.postgres_hook import PostgresHook
+from airflow.hooks.postgres import PostgresHook
 
 
 def get_session(conn_id: str) -> Session:
