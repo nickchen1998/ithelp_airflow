@@ -26,7 +26,9 @@ class SQLAlchemyOperator(PythonOperator):
     def execute_callable(self):
         session = get_session(self.conn_id)
         try:
-            result = self.python_callable(*self.op_args, session=session, **self.op_kwargs)
+            result = self.python_callable(*self.op_args,
+                                          session=session,
+                                          **self.op_kwargs)
         except Exception:
             session.rollback()
             raise

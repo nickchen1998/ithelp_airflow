@@ -18,7 +18,8 @@ class Settings:
 def create_table(session: Session):
     insp = inspect(session.get_bind())
     if not insp.has_table(Exhibitions.__tablename__):
-        Base.metadata.tables[Exhibitions.__tablename__].create(session.get_bind())
+        Base.metadata.tables[Exhibitions.__tablename__].create(
+            session.get_bind())
         print("資料表建立成功")
 
 
